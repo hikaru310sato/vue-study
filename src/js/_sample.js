@@ -6,7 +6,7 @@ export default () => {
     template: `<div>
       <input v-model="message">
       <button @click="increment">increment</button>
-      <div>{{messageAndCount}}</div>
+      <div v-if="count % 2 !== 0">{{messageAndCount}}</div>
     </div>`,
     data() {
       return {
