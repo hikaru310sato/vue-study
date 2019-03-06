@@ -28,7 +28,7 @@ npm run watch
 
 ## 各種設定ファイルの変更
 
-### webpack.js
+### conf/webpack.js
 
 #### jquery記述削除
 
@@ -81,15 +81,15 @@ resolve: {
 
 ---
 
-### eslintrc.js
+### conf/eslintrc.js
 
 #### jsx記法でエラーが出ないように変更
 
 ```
 rules: {
   ...
-  "import/no-named-as-default": 0,
-  "import/no-named-as-default-member": 0,
+  'import/no-named-as-default': 0,
+  'import/no-named-as-default-member': 0,
   ...
 },
 ```
