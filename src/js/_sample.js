@@ -7,6 +7,7 @@ export default () => {
       <input v-model="message">
       <button @click="increment">increment</button>
       <div v-if="count % 2 !== 0">{{messageAndCount}}</div>
+      <div v-else>この要素はcountが偶数のときに表示されます</div>
     </div>`,
     data() {
       return {
