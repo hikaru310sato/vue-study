@@ -4,7 +4,8 @@ export default () => {
   new Vue({
     el: '#app',
     template: `<div>
-      {{message}}:{{count}}
+      <button v-on:click="increment">increment</button>
+      <div>{{message}}:{{count}}</div>
     </div>`,
     data() {
       return {
