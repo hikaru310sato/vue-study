@@ -4,6 +4,7 @@ export default () => {
   new Vue({
     el: '#app',
     template: `<div>
+      <input v-model="message">
       <button @click="increment">increment</button>
       <div>{{messageAndCount}}</div>
     </div>`,
