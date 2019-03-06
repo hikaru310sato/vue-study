@@ -1,1 +1,3 @@
-require('./_sample')()
+import Sample from './_sample'
+
+Sample()

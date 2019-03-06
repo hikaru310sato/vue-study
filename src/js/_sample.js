@@ -1,6 +1,27 @@
-// sample
-module.exports = function () {
-  'use strict'
+import Vue from 'vue'
 
-  console.log('sample')
+export default () => {
+  new Vue({
+    el: '#app',
+    template: `<div>
+      <button @click="increment">increment</button>
+      <div>{{messageAndCount}}</div>
+    </div>`,
+    data() {
+      return {
+        message: 'Hello Vue.js !!',
+        count: 0,
+      }
+    },
+    computed: {
+      messageAndCount() {
+        return `${this.message}:${this.count}`
+      },
+    },
+    methods: {
+      increment() {
+        this.count += 1
+      },
+    },
+  })
 }
