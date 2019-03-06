@@ -14,6 +14,8 @@ module.exports = {
     // use strictを許可
     'strict': 0,
     // console メソッドを警告
-    'no-console': 1
+    'no-console': 1,
+    'import/no-named-as-default': 0,
+    'import/no-named-as-default-member': 0,
   },
 };
