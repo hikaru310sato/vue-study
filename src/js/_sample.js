@@ -4,14 +4,19 @@ export default () => {
   new Vue({
     el: '#app',
     template: `<div>
-      <button v-on:click="increment">increment</button>
-      <div>{{message}}:{{count}}</div>
+      <button @click="increment">increment</button>
+      <div>{{messageAndCount}}</div>
     </div>`,
     data() {
       return {
         message: 'Hello Vue.js !!',
         count: 0,
       }
+    },
+    computed: {
+      messageAndCount() {
+        return `${this.message}:${this.count}`
+      },
     },
     methods: {
       increment() {
