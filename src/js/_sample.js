@@ -6,8 +6,7 @@ export default () => {
     template: `<div>
       <input v-model="message">
       <button @click="increment">increment</button>
-      <div v-if="count % 2 !== 0">{{messageAndCount}}</div>
-      <div v-else>この要素はcountが偶数のときに表示されます</div>
+      <div v-bind:style="styleObject">{{messageAndCount}}</div>
     </div>`,
     data() {
       return {
@@ -18,6 +17,12 @@ export default () => {
     computed: {
       messageAndCount() {
         return `${this.message}:${this.count}`
+      },
+      styleObject() {
+        return {
+          color: this.count % 2 !== 0 ? 'red' : 'blue',
+          fontSize: '16px',
+        }
       },
     },
     methods: {
