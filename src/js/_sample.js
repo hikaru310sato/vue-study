@@ -1,6 +1,11 @@
-// sample
-module.exports = function () {
-  'use strict'
+import Vue from 'vue'
 
-  console.log('sample')
+export default () => {
+  new Vue({
+    el: '#app',
+    template:
+     `<div>
+        app
+    </div>`,
+  })
 }
