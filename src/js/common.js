@@ -1,3 +1,5 @@
-import Sample from './_sample'
+import App from './_app'
+import List from './_list'
 
-Sample()
+App()
+List()
