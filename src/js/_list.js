@@ -1,16 +1,31 @@
 import Vue from 'vue'
 import ListItem from './_listitem'
-// import EditorView from './_editorview'
+import EditorView from './_editorview'
 // import ListView from './_listview'
 
 export default () => {
   new Vue({
     el: '#list',
-    components: { ListItem },
+    data() {
+      return {
+        memo: {
+          id: 1,
+          text: '',
+          date: '',
+          tags: '',
+        },
+      }
+    },
+    components: { ListItem, EditorView },
     template: `
       <div>
-        <list-item></list-item>
+        <editor-view @add="add"></editor-view>
+        <list-item :memo="memo"></list-item>
       </div>`,
-    // render: h => h(ListItem),
+    methods: {
+      add(newMemo) {
+        Object.assign(this.memo, newMemo)
+      },
+    },
   })
 }

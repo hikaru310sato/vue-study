@@ -23,15 +23,8 @@
 
 <script>
 export default {
-  data() {
-    return {
-      memo: {
-        id: 1,
-        text: 'テスト',
-        date: '16-10-28',
-        tags: ['タグ1', 'タグ2']
-      }
-    };
+  props: {
+    memo: Object
   },
 };
 </script>
