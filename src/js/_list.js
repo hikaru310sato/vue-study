@@ -1,30 +1,34 @@
 import Vue from 'vue'
-import ListItem from './_listitem'
+// import ListItem from './_listitem'
 import EditorView from './_editorview'
-// import ListView from './_listview'
+import ListView from './_listview'
 
 export default () => {
   new Vue({
     el: '#list',
     data() {
       return {
-        memo: {
-          id: 1,
-          text: '',
-          date: '',
-          tags: '',
-        },
+        memos: [],
       }
     },
-    components: { ListItem, EditorView },
+    components: { EditorView, ListView },
     template: `
       <div>
         <editor-view @add="add"></editor-view>
-        <list-item :memo="memo"></list-item>
+        <list-view :memos="memos"></list-view>
       </div>`,
     methods: {
       add(newMemo) {
-        Object.assign(this.memo, newMemo)
+        newMemo.id = this.nextId
+        this.memos.push(newMemo)
+      },
+    },
+    computed: {
+      nextId() {
+        // this.memos の中で一番大きい id + 1 を返す
+        return this.memos.reduce((id, memo) => {
+          return id < memo.id ? memo.id : id
+        }, 0) + 1
       },
     },
   })
