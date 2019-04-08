@@ -204,3 +204,59 @@ computed: {
 
 
 ### メモを削除できるようにする
+
+ListItemコンポーネントに削除ボタンを追加し、クリックされたときにremove()を呼ぶように変更
+
+`src/js/_listitem.js`
+
+```
+template: `
+  <div class="list-item">
+
+  ...
+    <div>
+      <button @click="remove(memo.id)">削除</button>
+    </div>
+  </div>
+`,
+...
+
+...
+methods: {
+  remove(id) {
+    // this.$parent(ListViewコンポーネント)に
+    // 'remove' イベントをトリガーする
+    this.$parent.$emit('remove', id)
+  }
+}
+
+```
+
+`src/js/_list.js`
+
+```
+
+...
+template: `
+  <div>
+    <editor-view @add="add"></editor-view>
+    <list-view :memos="memos" @remove="remove"></list-view>
+  </div>
+`,
+...
+
+...
+methods: {
+  ...
+  remove(id) {
+    // 該当する id を持つ要素の index を取得する
+    const index = this.memos.findIndex((memo) => {
+      return memo.id === id
+    })
+    // this.memos から index にある要素を削除する
+    this.memos.splice(index, 1)
+  }
+},
+...
+
+```
